@@ -1,6 +1,7 @@
 import "./App.css";
 import TextField from "@mui/material/TextField";
 import Button from "@mui/material/Button";
+
 import { useState } from "react";
 import PropTypes from "prop-types";
 
@@ -8,13 +9,13 @@ function SearchBox({ updateInfo }) {
   let [city, setCity] = useState("");
   let [error, setError] = useState(false);
 
-  const API_URL = "https://api.openweathermap.org/data/2.5/weather";
-  const API_KEY = "b60c4ca79016b39be8542f7e4518b62b";
+  const API_URL = import.meta.env.VITE_API_URL;
+  const apiKey = import.meta.env.VITE_API_KEY;
 
   let getWeatherInfo = async () => {
     try {
       let response = await fetch(
-        `${API_URL}?q=${city}&appid=${API_KEY}&units=metric`
+        `${API_URL}?q=${city}&appid=${apiKey}&units=metric`
       );
       if (!response.ok) {
         throw new Error(`HTTP error! status: ${response.status}`);
@@ -41,13 +42,13 @@ function SearchBox({ updateInfo }) {
   let handleChange = (e) => {
     e.preventDefault();
     setCity(e.target.value);
-  }
+  };
 
   return (
     <div>
       {error && <p className="Error">Place Not Found!</p>}
       <TextField
-      className="SearchBox"
+        className="SearchBox"
         label="City"
         variant="outlined"
         value={city}
