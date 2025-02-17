@@ -1,0 +1,34 @@
+#root {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 2rem;
+  text-align: center;
+}
+
+.App{
+  background: #03c1ce;
+  border: 1px solid #e0eaeb;
+  padding: 20px;
+  border-radius: 10px;
+  width: 450px;
+}
+/* .WeatherApp{
+  justify-content: center;
+} */
+.SearchBox{
+  width: 65%;
+  margin-bottom: 15px;
+  background: none;
+  color: aliceblue;
+  border: 2px solid white !important;
+  border-radius: 5px;
+
+}
+.WeatherInfo{
+  margin-top: 15px;
+}
+.Error{
+  color: rgb(113, 5, 5);
+  font-size: large;
+  font-weight: 600;
+}
